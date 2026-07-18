@@ -23,11 +23,8 @@ function readingTime(content: string) {
 }
 
 function toDisplayDate(date: string) {
-  return new Intl.DateTimeFormat("ja-JP", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(new Date(`${date}T00:00:00+09:00`));
+  const [year, month, day] = date.split("-").map(Number);
+  return `${year}年${month}月${day}日`;
 }
 
 export function getAllPosts(): Post[] {

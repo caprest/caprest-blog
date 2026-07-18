@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPost } from "@/lib/posts";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -13,7 +14,37 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return {};
-  return { title: post.title, description: post.description };
+  const postPath = `/posts/${post.slug}/`;
+  const socialImage = {
+    url: absoluteUrl(`/og/${post.slug}.png`),
+    width: 1200,
+    height: 630,
+    alt: post.title,
+  };
+
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: absoluteUrl(postPath) },
+    openGraph: {
+      type: "article",
+      locale: siteConfig.locale,
+      siteName: siteConfig.name,
+      title: post.title,
+      description: post.description,
+      url: absoluteUrl(postPath),
+      publishedTime: `${post.date}T00:00:00+09:00`,
+      authors: [siteConfig.author],
+      tags: post.tags,
+      images: [socialImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [socialImage],
+    },
+  };
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {

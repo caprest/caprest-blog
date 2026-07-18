@@ -1,0 +1,4 @@
+interface:
+  display_name: "認知リズム・ライティング"
+  short_description: "日本語記事の認知リズムと段落構成を設計・点検する"
+  default_prompt: "Use $cognitive-rhythm-writing to review and improve this Japanese blog post."

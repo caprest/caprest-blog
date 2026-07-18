@@ -1,0 +1,4 @@
+interface:
+  display_name: "日本語技術ライティング"
+  short_description: "日本語の技術記事を構成・推敲しLLMらしい空句を除く"
+  default_prompt: "Use $japanese-tech-writing to edit this Japanese technical article for clarity and rigor."

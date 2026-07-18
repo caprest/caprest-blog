@@ -33,3 +33,12 @@ tags: [日記, 制作]
 3. `Deploy blog to GitHub Pages` ワークフローを実行します。
 
 プロジェクトPagesと `ユーザー名.github.io` の両方に対応し、パスはワークフロー内で自動設定されます。
+
+## 執筆スキル
+
+日本語記事の執筆・推敲用に、[k16shikano](https://github.com/k16shikano)氏の次のスキルを収録しています。
+
+- [cognitive-rhythm-writing](https://gist.github.com/k16shikano/eb2929f13ed19c97188393d297be8432)
+- [japanese-tech-writing](https://gist.github.com/k16shikano/fd287c3133457c4fd8f5601d34aa817d)
+
+作者による[公開Gistのライセンス宣言](https://gist.github.com/k16shikano/67625f2a7d96e3bbdfae8d571a936063)に基づき、The Unlicenseで収録しています。詳細は [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) を参照してください。

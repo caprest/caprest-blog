@@ -282,6 +282,33 @@ a:focus-visible {
   letter-spacing: -0.03em;
 }
 
+.prose h3 {
+  margin: 2.2em 0 0.8em;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1.8em;
+  padding-left: 1.6em;
+}
+
+.prose li {
+  margin: 0.45em 0;
+}
+
+.prose a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.prose a:hover {
+  color: var(--secondary);
+}
+
 .prose code,
 .about-copy code {
   padding: 0.16em 0.4em;
@@ -292,11 +319,58 @@ a:focus-visible {
   font-size: 0.9em;
 }
 
+.prose pre {
+  overflow-x: auto;
+  margin: 2em 0;
+  padding: 20px;
+  background: var(--subtle);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.prose pre code {
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
 .prose blockquote {
   margin: 2em 0;
   padding-left: 20px;
   color: var(--secondary);
   border-left: 3px solid var(--foreground);
+}
+
+.prose table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin: 2em 0;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.prose th,
+.prose td {
+  min-width: 112px;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose th {
+  border-bottom-color: var(--foreground);
+  font-weight: 700;
+}
+
+.prose .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 2em 0;
+  padding: 0.4em 0;
 }
 
 .article-end {

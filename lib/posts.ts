@@ -2,7 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
-import html from "remark-html";
+import rehypeKatex from "rehype-katex";
+import rehypeStringify from "rehype-stringify";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import remarkRehype from "remark-rehype";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
@@ -55,7 +59,13 @@ export async function getPost(slug: string): Promise<Post | null> {
 
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
-  const processed = await remark().use(html).process(content);
+  const processed = await remark()
+    .use(remarkGfm)
+    .use(remarkMath)
+    .use(remarkRehype)
+    .use(rehypeKatex)
+    .use(rehypeStringify)
+    .process(content);
 
   return {
     slug,
